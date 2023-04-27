@@ -20,7 +20,6 @@ canv.grid(row=0, column=0)
 depart = 0
 fin = 0
 fois = 1
-son = 1
 
 hours, minutes, seconds = 0, 0, 0
 
@@ -28,9 +27,6 @@ hours, minutes, seconds = 0, 0, 0
 def parametrer():
     global depart
     hours, minutes, seconds = 0, 0, 1
-    pygame.mixer.music.load("D:\\pythonProject\\jeudufeu\\Sons\\beep.mp3")
-    pygame.mixer.music.play(loops=1)
-    mixer.music.set_volume(5)
     depart = 1
     fleche_haut = Button(window, text="↑", font=("Noticia", 15), bg="grey", width=5, height=1, command=haut)
     fleche_haut.place(x=100, y=230)
@@ -50,29 +46,20 @@ def parametrer():
         ff = 10
 
 def mute():
-    son - 1
-
-
+    mixer.music.set_volume(0)
 
 def boutonfois():
     global seconds
     global minutes
     global hours
-    pygame.mixer.music.load("D:\\pythonProject\\jeudufeu\\Sons\\beep.mp3")
-    pygame.mixer.music.play(loops=1)
-    mixer.music.set_volume(5)
     canv.delete("lala")
     hours, minutes, seconds = 1, 0, 2
     canv.create_text(200, 265, text=str(hours) + "." + str(minutes) + "." + str(seconds), font=("Arial", 25), fill="black", tag="lala")
 
 def debut():
     global hours, minutes, seconds
-    pygame.mixer.music.load("D:\\pythonProject\\jeudufeu\\Sons\\beep.mp3")
-    pygame.mixer.music.play(loops=1)
-    mixer.music.set_volume(5)
     canv.delete("lala")
     start()
-    chrono = 1
 
 def arreter():
     window.destroy()
@@ -81,9 +68,6 @@ def haut():
     global seconds
     global minutes
     global hours
-    pygame.mixer.music.load("D:\\pythonProject\\jeudufeu\\Sons\\beep.mp3")
-    pygame.mixer.music.play(loops=1)
-    mixer.music.set_volume(5)
     canv.delete("lala")
     canv.create_text(200, 265, text=str(hours) + "." + str(minutes) + "." + str(seconds), font=("Arial", 25), fill="black", tag="lala")
     seconds = seconds + 1
@@ -99,9 +83,6 @@ def bas():
     global seconds
     global minuts
     global hours
-    pygame.mixer.music.load("D:\\pythonProject\\jeudufeu\\Sons\\beep.mp3")
-    pygame.mixer.music.play(loops=1)
-    mixer.music.set_volume(5)
     canv.delete("lala")
     canv.create_text(200, 265, text=str(hours) + "." + str(minutes) + "." + str(seconds), font=("Arial", 25), fill="black", tag="lala")
     seconds = seconds - 1
@@ -164,11 +145,6 @@ def start():
         return
 
     depart = 0
-
-    if son == 1:
-        pygame.mixer.music.load("D:\\pythonProject\\videoplayback.mp3")
-        pygame.mixer.music.play(loops=1000)
-        mixer.music.set_volume(5)
 
 canv.create_text(313, 50, text="Temps d'écran", font=("Impact", 30), fill="black")
 bouton_arreter = Button(window, text="Arrêter", font=("Noticia", 15), bg="grey", width=13, height=2, command=arreter)
